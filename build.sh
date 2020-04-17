@@ -1,4 +1,4 @@
 #!/bin/bash
 
 docker build -t ide:1.0 .
-docker run -it ide:1.0 bash
+docker run -P -it ide:1.0 bash

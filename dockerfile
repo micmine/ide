@@ -4,20 +4,38 @@ RUN apt update -y
 RUN apt upgrade -y
 
 # basic
-RUN apt install -y bash ssh git neovim fzf ripgrep curl tmux
+RUN apt install -y bash \
+	ssh \
+	git \
+	neovim \
+	fzf \
+	ripgrep \
+	curl \
+	wget \
+	tmux \
+	unzip \
+	zip
 
 # basic lib
-RUN apt install -y python3-pip nodejs npm golang-go
+RUN apt install -y python3-pip \
+	nodejs \
+	npm \
+	golang-go
 RUN npm install eslint --global
 RUN pip3 install Pillow
+RUN curl -s "https://get.sdkman.io" | bash
 
 # cli tools
-RUN apt install -y ranger tree
+RUN apt install -y ranger \
+	tree
+RUN npm install http-server
 
-# php lib
 # java lib
-# python lib
+RUN bash -c ". ~/.bashrc && sdk install java 11.0.6-open"
+RUN bash -c ". ~/.bashrc && sdk install gradle"
+
 # javascript lib
+RUN npm install -g @vue/cli
 
 # terminal
 RUN mkdir -p /usr/share/fonts/truetype
