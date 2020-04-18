@@ -16,6 +16,8 @@ RUN apt install -y bash \
 	unzip \
 	zip
 
+RUN git clone https://github.com/jimeh/tmux-themepack.git ~/.config/tmux-themepack
+
 # basic lib
 RUN apt install -y python3-pip \
 	nodejs \
